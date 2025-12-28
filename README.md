@@ -26,24 +26,24 @@ This is a simple chat application I built in Python. It lets multiple users conn
 ---
 
 ## How to Use
-Start the Server
-- Click Start Server in the GUI.
+### Start the Server
+- Click **Start Server** in the GUI.
 - The server will begin listening for client connections.
-Connect with a Client
+### Connect with a Client
 - Enter your username when prompted.
 - Start chatting securely with other connected users.
 
 ---
-### Usage
-- Type messages in the entry box and press Enter or click Send.
+## Usage
+- Type messages in the entry box and click **Enter** or click **Send**.
 - Type exit to leave the chat.
 - Messages are displayed in different colors for your messages vs. others.
 
  ---
 
-### Notes
+## Notes
 - Make sure the server is running before starting clients.
 - The encryption key and passwords must match between server and client.
 
-### License
+## License
 This project is open-source and free to use.
