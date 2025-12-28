@@ -1,6 +1,6 @@
 # Secure Python Chat App
 
-This is a simple chat application I built in Python. It lets multiple users connect to a server and chat in real-time, with messages encrypted for privacy. The app has a GUI built with Tkinter and includes some basic security features like a password-protected server.
+This is a simple chat application I built in Python. It lets multiple users connect to a server and chat in real-time, with messages encrypted for privacy using Fernet symmetric encryption. The app has a GUI built with Tkinter and includes some basic security features like a password-protected server.
 
 ---
 
@@ -20,16 +20,30 @@ This is a simple chat application I built in Python. It lets multiple users conn
 - Tkinter for GUI  
 - Socket programming for client-server communication  
 - Threading for handling multiple clients  
-- Cryptography (`Fernet`) for message encryption  
+- Cryptography (`Fernet`) for secure message encryption
+- Python-dotenv for environment variables
 
 ---
 
 ## How to Use
+Start the Server
+- Click Start Server in the GUI.
+- The server will begin listening for client connections.
+Connect with a Client
+- Enter your username when prompted.
+- Start chatting securely with other connected users.
 
-### Server
+---
+### Usage
+- Type messages in the entry box and press Enter or click Send.
+- Type exit to leave the chat.
+- Messages are displayed in different colors for your messages vs. others.
 
-1. Open `server.py`.  
-2. (Optional) Change the server password or encryption key in the code.  
-3. Run it:
-```bash
-python server.py
+ ---
+
+### Notes
+- Make sure the server is running before starting clients.
+- The encryption key and passwords must match between server and client.
+
+### License
+This project is open-source and free to use.
