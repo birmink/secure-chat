@@ -5,14 +5,18 @@ from tkinter import scrolledtext
 from tkinter import messagebox
 from cryptography.fernet import Fernet
 from datetime import datetime
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Server configuration
-HOST = '0.0.0.0'
-PORT = 5001
+HOST = os.getenv("HOST", "0.0.0.0")
+PORT = int(os.getenv("PORT", 5001))
 BUFFER_SIZE = 4096
 
-SERVER_PASSWORD = "supersecretpassword"
-ENCRYPTION_KEY = b'eBzD2dnLcDF55TvP6RL2C8p0-D5-PcD3M3X8ny9MR60='
+SERVER_PASSWORD = os.getenv("SERVER_PASSWORD")
+ENCRYPTION_KEY = os.getenv("ENCRYPTION_KEY")
 fernet = Fernet(ENCRYPTION_KEY)
 
 class ChatServerGUI:

@@ -2,16 +2,24 @@ import socket
 import threading
 import tkinter as tk
 from tkinter import scrolledtext
-from cryptography.fernet import Fernet
 from datetime import datetime
+import os
+from dotenv import load_dotenv
+from cryptography.fernet import Fernet
+
+load_dotenv()
 
 # Client configuration
-SERVER_HOST = '127.0.0.1'
-SERVER_PORT = 5001
+SERVER_HOST = os.getenv("SERVER_HOST", "127.0.0.1")
+SERVER_PORT = int(os.getenv("SERVER_PORT", 5001))
 BUFFER_SIZE = 4096
 
-CLIENT_PASSWORD = "supersecretpassword"
-ENCRYPTION_KEY = b'eBzD2dnLcDF55TvP6RL2C8p0-D5-PcD3M3X8ny9MR60='  # Must match the server key
+CLIENT_PASSWORD = os.getenv("CLIENT_PASSWORD")
+ENCRYPTION_KEY = os.getenv("ENCRYPTION_KEY")  # Must match the server key
+if CLIENT_PASSWORD is None or ENCRYPTION_KEY is None:
+    raise ValueError("Missing CLIENT_PASSWORD or ENCRYPTION_KEY in .env file")
+
+ENCRYPTION_KEY = ENCRYPTION_KEY.encode()
 fernet = Fernet(ENCRYPTION_KEY)
 
 class ChatClientGUI:
